@@ -21,13 +21,7 @@ def import_wiretap_library(version=WIRETAP_VERSION):
     logger.info('Use Wiretap version %s.' % version)
     library_path = os.path.join(
         DISCREET_PATH, 'python', version, 'lib', 'python2.7', 'site-packages', 'adsk',
-        'libwiretapPythonClientAPI')
-
-    if platform.system() == 'Linux':
-        library_path += '.so'
-    else:  # Darwin
-        library_path += '.dylib'
-
+        'libwiretapPythonClientAPI.so')
     return imp.load_dynamic('libwiretapPythonClientAPI', library_path)
 
 
