@@ -46,7 +46,7 @@ def parse_args(args):
         '--fps', '-fps', default='25',
         help='Frame rate (default: %(default)s)')
     parser_createproject.add_argument(
-        '--aspect', '-a', default='16:9',
+        '--aspect', '-a', default='1.7778',
         help='Aspect ratio (default: %(default)s)')
     parser_createproject.add_argument(
         '--field', '-fd', default='PROGRESSIVE',
