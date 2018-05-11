@@ -16,6 +16,7 @@ setup(
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=['*.tests.*', 'tests.*', 'tests']),
     description="Python wrapper to the Wiretap Client API",
+    install_requires=['PyYAML'],
     long_description=read('README.md'),
     license="LICENSE.txt",
 )
