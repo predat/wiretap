@@ -59,6 +59,8 @@ def parse_args(args):
     parser_createproject.add_argument(
         '--description', help='Project description')
     parser_createproject.add_argument(
+        '--setupdir', '-s', help='Setup directory')
+    parser_createproject.add_argument(
         '--libraries-file', type=argparse.FileType('r'),
         help='YAML file describing Libraries to create in project.')
 
@@ -85,17 +87,18 @@ def main(args):
             'FieldDominance': args.field,
             'Description': args.description if args.description else ""}
 
+        if args.setupdir:
+            project_setings['SetupDir'] = args.setupdir
+
+        handler = wiretap.WiretapHandler(hostname=args.server)
+        project = handler.create_project(args.name, project_setings)
+
         libs = dict()
         if args.libraries_file:
             try:
-                print "ok"
                 libs = yaml.load(args.libraries_file.read())
             except Exception:
                 pass
-
-        handler = wiretap.WiretapHandler(hostname=args.server)
-
-        project = handler.create_project(args.name, project_setings)
 
         if libs:
             for lib in libs.keys():
