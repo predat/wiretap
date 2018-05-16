@@ -17,6 +17,17 @@ pip install git+https://github.com/predat/wiretap --user
 
 ## Usage
 
+By default, wiretap python module use version 2018.3. If you want to use an other version,
+you can set an environmnet variable `WIRETAP_VERSION`. Ex:
+```
+export WIRETAP_VERSION=2019
+wiretap -h
+```
+or
+```
+WIRETAP_VERSION=2019 wiretap -h
+```
+
 ### From the command line:
 
 pip install a script call `wiretap`:
