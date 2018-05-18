@@ -110,20 +110,7 @@ class WiretapHandler(object):
                     raise WiretapException("Error setting metadata for %s: %s" % (project_name, project_node.lastError()))
 
                 workspace_node = self._create_node(project_node, WiretapNodeType.Workspace)
-
                 self._create_node(workspace_node, WiretapNodeType.Desktop)
-
-                # create Custom Folders into the project
-                # libraries = {
-                #     '01_IMPORTS': ['2D', '3D', 'CONFO', 'CT', 'DP', 'ELEMENTS'],
-                #     '02_JOB': [],
-                #     '03_WIP': [],
-                #     '04_MASTERS': []
-                # }
-                # self._create_project_librairies(project_node, 'Libraries', libraries)
-
-                # shared_libraries = {'TRANSFERTS': []}
-                # self._create_project_librairies(project_node, 'Shared Libraries', shared_libraries)
 
                 return project_node
 
