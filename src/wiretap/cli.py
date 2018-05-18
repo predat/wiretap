@@ -15,7 +15,7 @@ __author__ = "Sylvain Maziere"
 def parse_args(args):
     parser = argparse.ArgumentParser(
         prog='wiretap',
-        description="Wiretap command line tool.",
+        description="Wiretap command line tool",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     parser.add_argument(
@@ -31,9 +31,13 @@ def parse_args(args):
     sub_parser.required = True
 
     # project
+    parser_listuser = sub_parser.add_parser(
+        'list-project',
+        help="List all projects in Wiretap database")
+
     parser_createproject = sub_parser.add_parser(
         'create-project',
-        help="Create a Wiretap project.")
+        help="Create a Wiretap project")
     parser_createproject.add_argument(
         'name', help='Project name')
     parser_createproject.add_argument(
@@ -67,17 +71,17 @@ def parse_args(args):
     # user
     parser_listuser = sub_parser.add_parser(
         'list-user',
-        help="List all users in Wiretap database.")
+        help="List all users in Wiretap database")
 
     parser_createuser = sub_parser.add_parser(
         'create-user',
-        help="Create a Wiretap user.")
+        help="Create a Wiretap user")
     parser_createuser.add_argument(
         'name', help="Flame User name")
 
     parser_deleteuser = sub_parser.add_parser(
         'delete-user',
-        help="Delete a Wiretap user.")
+        help="Delete a Wiretap user")
     parser_deleteuser.add_argument(
         'name', help="Flame User name")
 
@@ -87,7 +91,18 @@ def parse_args(args):
 def main(args):
     args = parse_args(args)
 
-    if args.command_name == 'create-project':
+    if args.command_name == 'list-project':
+        handler = wiretap.WiretapHandler(hostname=args.server)
+        projects = handler.get_projects()
+
+        if projects:
+            print "Projects found:"
+            for p in projects:
+                print p
+        else:
+            print "No project found in database..."
+
+    elif args.command_name == 'create-project':
         project_setings = {
             'FrameWidth': args.width,
             'FrameHeight': args.height,
@@ -118,7 +133,7 @@ def main(args):
         handler = wiretap.WiretapHandler(hostname=args.server)
         users = handler.get_users()
         if users:
-            print "User found:"
+            print "Users found:"
             for u in users:
                 print "- %s" % u
         else:
