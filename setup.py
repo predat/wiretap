@@ -18,5 +18,5 @@ setup(
     description="Python wrapper to the Wiretap Client API",
     install_requires=['PyYAML'],
     long_description=read('README.md'),
-    license="LICENSE.txt",
+    license="GPLv3",
 )
