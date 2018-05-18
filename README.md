@@ -48,10 +48,11 @@ commands:
   Command to execute
 
   <command>
-    create-project      Create a Wiretap project.
-    list-user           List all users in Wiretap database.
-    create-user         Create a Wiretap user.
-    delete-user         Delete a Wiretap user.
+    list-project        List all projects in Wiretap database
+    create-project      Create a Wiretap project
+    list-user           List all users in Wiretap database
+    create-user         Create a Wiretap user
+    delete-user         Delete a Wiretap user
 ```
 
 Example: create a local project with a resolution of 2048x1024 at 25 fps in 10-bit:
