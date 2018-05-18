@@ -35,7 +35,7 @@ def parse_args(args):
         'create-project',
         help="Create a Wiretap project.")
     parser_createproject.add_argument(
-        '--name', '-n', help='Project name', required=True)
+        'name', help='Project name')
     parser_createproject.add_argument(
         '--width', '-fw', default='1920',
         help='Frame width (default: %(default)s)')
@@ -69,7 +69,7 @@ def parse_args(args):
         'create-user',
         help="Create a Wiretap user.")
     parser_createuser.add_argument(
-        '--name', '-n', help="Flame User name")
+        'name', help="Flame User name")
 
     return parser.parse_args(args)
 

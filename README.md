@@ -54,5 +54,5 @@ commands:
 
 Example: create a local project with a resolution of 2048x1024 at 25 fps in 10-bit:
 ```
-wiretap create-project -name MY_AWESONE_PROJECT_ON_FLAME --depth '10-bit' --fps 25 --width 2048 --height 1024
+wiretap create-project MY_AWESONE_PROJECT_ON_FLAME --depth '10-bit' --fps 25 --width 2048 --height 1024
 ```
