@@ -206,6 +206,17 @@ class WiretapHandler(object):
         """
         return self._get_node_from_path("/users/%s" % user_name)
 
+    def delete_user(self, user_name):
+        """
+        Delete a user from database
+
+        :param user_name: user name
+        :type user_name: string
+        """
+        user_node = self.get_user(user_name)
+        if not user_node.destroyNode():
+            raise WiretapException("Unable to delete user: %s" % user_node.lastError())
+
     def get_volumes(self):
         """
         Return a list of volumes names

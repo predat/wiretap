@@ -50,6 +50,7 @@ commands:
   <command>
     create-project      Create a Wiretap project.
     create-user         Create a Wiretap user.
+    delete-user         Delete a Wiretap user.
 ```
 
 Example: create a local project with a resolution of 2048x1024 at 25 fps in 10-bit:

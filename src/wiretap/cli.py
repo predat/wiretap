@@ -71,6 +71,12 @@ def parse_args(args):
     parser_createuser.add_argument(
         'name', help="Flame User name")
 
+    parser_deleteuser = sub_parser.add_parser(
+        'delete-user',
+        help="Delete a Wiretap user.")
+    parser_deleteuser.add_argument(
+        'name', help="Flame User name")
+
     return parser.parse_args(args)
 
 
@@ -108,7 +114,9 @@ def main(args):
         handler = wiretap.WiretapHandler(hostname=args.server)
         handler.create_user(args.name)
 
-    # handler = wiretap.WiretapHandler()
+    elif args.command_name == 'delete-user':
+        handler = wiretap.WiretapHandler(hostname=args.server)
+        handler.delete_user(args.name)
 
 
 def run():
