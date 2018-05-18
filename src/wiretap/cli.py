@@ -65,6 +65,10 @@ def parse_args(args):
         help='YAML file describing Libraries to create in project.')
 
     # user
+    parser_listuser = sub_parser.add_parser(
+        'list-user',
+        help="List all users in Wiretap database.")
+
     parser_createuser = sub_parser.add_parser(
         'create-user',
         help="Create a Wiretap user.")
@@ -109,6 +113,16 @@ def main(args):
         if libs:
             for lib in libs.keys():
                 handler._create_project_librairies(project, lib, libs[lib])
+
+    elif args.command_name == 'list-user':
+        handler = wiretap.WiretapHandler(hostname=args.server)
+        users = handler.get_users()
+        if users:
+            print "User found:"
+            for u in users:
+                print "- %s" % u
+        else:
+            print "No User found in database..."
 
     elif args.command_name == 'create-user':
         handler = wiretap.WiretapHandler(hostname=args.server)

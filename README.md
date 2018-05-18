@@ -49,6 +49,7 @@ commands:
 
   <command>
     create-project      Create a Wiretap project.
+    list-user           List all users in Wiretap database.
     create-user         Create a Wiretap user.
     delete-user         Delete a Wiretap user.
 ```
